@@ -26,39 +26,44 @@ export default function Leaderboard() {
   }, [search, minAttempts, maxAttempts]);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Leaderboard</h1>
-      <div className="mb-4">
+    <div className="pt-8 px-10">
+      <div className="flex justify-between items-center mb-8">
+        <div className="flex items-center space-x-2.5">
+          <i className="fa-solid fa-book-open-reader fa-2xl text-gray-900"></i>
+          <h1 className="text-4xl font-bold text-gray-900">Leaderboard</h1>
+        </div>
+        <button
+          onClick={fetchData}
+          className="py-2 px-3 bg-gray-100 text-gray-900 border rounded-md border-gray-500 cursor-pointer hover:bg-gray-200"
+          title="Refresh"
+        >
+          <i className="fa-solid fa-arrow-rotate-right"></i>
+        </button>
+      </div>
+      <div className="flex flex-row justify-between items-center mb-8">
         <input
           type="text"
           placeholder="Search by name"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="p-2 border rounded"
+          className="px-2 py-1.5 border rounded-md border-gray-600"
         />
-      </div>
-      <div className="mb-4">
         <input
           type="number"
           placeholder="Min attempts"
           value={minAttempts}
           onChange={(e) => setMinAttempts(e.target.value)}
-          className="p-2 border rounded mr-2"
+          className="px-2 py-1.5 border rounded-md border-gray-600"
         />
         <input
           type="number"
           placeholder="Max attempts"
           value={maxAttempts}
           onChange={(e) => setMaxAttempts(e.target.value)}
-          className="p-2 border rounded"
+          className="px-2 py-1.5 border rounded-md border-gray-600"
         />
       </div>
-      <button
-        onClick={fetchData}
-        className="p-2 bg-blue-500 text-white rounded mb-4 cursor-pointer"
-      >
-        Refresh
-      </button>
+
       <table className="w-full border-collapse border">
         <thead>
           <tr className="bg-gray-200">
